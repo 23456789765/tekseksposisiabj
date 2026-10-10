@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Edukasi: Teks Eksposisi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Latar Belakang Canvas Interaktif -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Container Utama Game -->
+    <div class="game-container">
+
+        <!-- Header Informasi Game -->
+        <header class="game-header">
+            <div class="header-item">
+                <span class="label">SKOR</span>
+                <span id="scoreDisplay" class="value">0</span>
+            </div>
+            <div class="header-item">
+                <span class="label">COMBO</span>
+                <span id="comboDisplay" class="value highlight">x1</span>
+            </div>
+            <div class="header-item">
+                <span class="label">NYAWA</span>
+                <div id="livesDisplay" class="lives-container">
+                    <span class="heart">❤️</span>
+                    <span class="heart">❤️</span>
+                    <span class="heart">❤️</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Layar 1: Halaman Awal -->
+        <div id="startScreen" class="card screen active">
+            <div class="badge">Bahasa Indonesia</div>
+            <h1>KUIS TEKS EKSPOSISI</h1>
+            <p class="subtitle">Uji pemahamanmu tentang Struktur, Ciri Kebahasaan, serta Fakta & Opini dalam Teks Eksposisi!</p>
+            
+            <div class="instructions">
+                <div class="inst-item">🎯 Jawab pertanyaan tanpa batasan waktu</div>
+                <div class="inst-item">⚡ Bonus skor multiplier untuk rentetan jawaban benar</div>
+                <div class="inst-item">💡 Gunakan bantuan 50:50 jika menemukan soal sulit</div>
+            </div>
+
+            <button id="startBtn" class="btn btn-primary btn-large">Mulai Permainan</button>
+        </div>
+
+        <!-- Layar 2: Layar Kuis -->
+        <div id="quizScreen" class="card screen">
+            <div class="quiz-top">
+                <span id="questionProgress" class="progress-text">Soal 1/10</span>
+                <!-- Bantuan Power-Up 50:50 -->
+                <button id="p5050" class="btn-powerup" title="Hilangkan 2 Jawaban Salah">
+                    <span>⚡ Bantuan 50:50</span>
+                </button>
+            </div>
+
+            <!-- Teks Pertanyaan -->
+            <div class="question-container">
+                <h2 id="questionText">Pertanyaan akan muncul di sini...</h2>
+            </div>
+
+            <!-- Pilihan Jawaban -->
+            <div id="optionsContainer" class="options-grid">
+                <!-- Disi secara dinamis melalui JS -->
+            </div>
+        </div>
+
+        <!-- Layar 3: Layar Hasil -->
+        <div id="endScreen" class="card screen">
+            <h1 id="resultTitle">Permainan Selesai!</h1>
+            <div class="final-score-box">
+                <p>Skor Akhir Kamu</p>
+                <div id="finalScore" class="score-number">0</div>
+                <p id="highScoreText" class="high-score-text">Skor Tertinggi: 0</p>
+            </div>
+
+            <div class="stats-summary">
+                <div class="stat-box">
+                    <span class="stat-value" id="correctCount">0</span>
+                    <span class="stat-label">Jawaban Benar</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="maxComboCount">x1</span>
+                    <span class="stat-label">Combo Tertinggi</span>
+                </div>
+            </div>
+
+            <button id="reviewBtn" class="btn btn-secondary">🔍 Lihat Pembahasan Jawaban</button>
+            <button id="restartBtn" class="btn btn-primary btn-large">Main Lagi 🔄</button>
+
+            <!-- Kotak Pembahasan Jawaban -->
+            <div id="reviewContainer" class="review-container hidden">
+                <h3>Pembahasan Soal</h3>
+                <div id="reviewList" class="review-list"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
